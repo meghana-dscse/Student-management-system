@@ -12,7 +12,7 @@ function StudentList() {
 
   const fetchStudents = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/students'); // Make sure URL matches backend
+      const response = await axios.get('https://student-backend-jt61.onrender.com/api/students');
       setStudents(response.data);
     } catch (error) {
       console.error('Error fetching students:', error);
@@ -21,7 +21,7 @@ function StudentList() {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/students/${id}`); // Correct API URL
+      await axios.delete(`https://student-backend-jt61.onrender.com/api/students/${id}`);
       fetchStudents(); // Reload students after delete
     } catch (error) {
       console.error('Error deleting student:', error);
