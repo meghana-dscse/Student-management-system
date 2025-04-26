@@ -1,0 +1,47 @@
+.edit-student {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f0f4f8;
+  min-height: 100vh;
+}
+
+.edit-student h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.edit-student form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.edit-student input {
+  margin-bottom: 15px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.edit-student button {
+  padding: 12px;
+  background-color: #28a745;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.edit-student button:hover {
+  background-color: #218838;
+}
