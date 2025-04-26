@@ -10,7 +10,7 @@ function EditStudent() {
 
   const fetchStudent = useCallback(async () => {
     try {
-      const response = await axios.get(`https://student-backend-jt61.onrender.com/api/students/${id}`);
+      const response = await axios.get(`https://student-management-system-zblz.onrender.com/api/students/${id}`);
       setStudent(response.data);
     } catch (error) {
       console.error('Error fetching student:', error);
@@ -28,7 +28,7 @@ function EditStudent() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`https://student-backend-jt61.onrender.com/api/students/${id}`, student);
+      await axios.put(`https://student-management-system-zblz.onrender.com/api/students/${id}`, student);
       navigate('/students');
     } catch (error) {
       console.error('Error updating student:', error);
