@@ -14,7 +14,7 @@ function AddStudent() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/students', student); // Correct API URL
+      await axios.post('https://student-backend-jt61.onrender.com/api/students', student); 
       navigate('/students');
     } catch (error) {
       console.error('Error adding student:', error);
