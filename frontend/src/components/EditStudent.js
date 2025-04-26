@@ -8,19 +8,18 @@ function EditStudent() {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  // Use useCallback to memoize fetchStudent and avoid unnecessary re-renders
   const fetchStudent = useCallback(async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/students/${id}`);
+      const response = await axios.get(`https://student-backend-jt61.onrender.com/api/students/${id}`);
       setStudent(response.data);
     } catch (error) {
       console.error('Error fetching student:', error);
     }
-  }, [id]); // Dependency on 'id' ensures it updates when the student ID changes
+  }, [id]);
 
   useEffect(() => {
     fetchStudent();
-  }, [fetchStudent]);  // Now it's safe to include fetchStudent in the dependency array
+  }, [fetchStudent]);
 
   const handleChange = (e) => {
     setStudent({ ...student, [e.target.name]: e.target.value });
@@ -29,7 +28,7 @@ function EditStudent() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:5000/api/students/${id}`, student);
+      await axios.put(`https://student-backend-jt61.onrender.com/api/students/${id}`, student);
       navigate('/students');
     } catch (error) {
       console.error('Error updating student:', error);
