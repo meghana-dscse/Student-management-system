@@ -7,16 +7,26 @@ const studentRoutes = require('./routes/students');
 dotenv.config();
 
 const app = express();
-app.use(express.json()); 
+
+// Middlewares
+app.use(express.json());
 app.use(cors());
 
-// API Routes
+// Routes
 app.use('/api/students', studentRoutes);
 
+// Set PORT
 const PORT = process.env.PORT || 5000;
 
-mongoose.connect(process.env.MONGO_URI)
-  .then(() => {
+// Connect to MongoDB and start server
+mongoose.connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+})
+.then(() => {
+    console.log('MongoDB connected');
     app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-  })
-  .catch((err) => console.log(err));
+})
+.catch((err) => {
+    console.error('MongoDB connection failed:', err);
+});
